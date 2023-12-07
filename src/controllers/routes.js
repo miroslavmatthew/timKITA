@@ -1,13 +1,14 @@
 import express from "express";
 import{
     home,
-    login,
-    register
+    barchart,
+    scatter,addData
 } from "./controller.js"
 
 const router = express.Router();
 
 router.get('/', home);
-router.get('/login', login);
-router.get('/register', register);
+router.get('/barchart', barchart);
+router.get('/scatter', scatter);
+router.get('/addData', addData);
 export default router;

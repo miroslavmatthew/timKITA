@@ -1,12 +1,15 @@
 
 export const home = (req,res) => {
-    res.render("home");
+    res.render("index");
 }
 
-export const login = (req,res) => {
-    res.render("login");
+export const barchart = (req,res) => {
+    res.render("barchart");
 }
 
-export const register = (req,res) => {
-    res.render("register");
+export const scatter = (req,res) => {
+    res.render("scatter");
+}
+export const addData = (req,res) => {
+    res.render("tambah_data");
 }
