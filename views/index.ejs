@@ -10,6 +10,10 @@
     crossorigin="anonymous"
   />
   <script
+    type="text/javascript"
+    src="https://webpivottable.com/releases/latest/dist/wpt.js"
+  ></script>
+  <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
@@ -17,7 +21,10 @@
   <script src=""></script>
   <body>
     <%- include("./layout/navbar") %>
-
-    <h1>Halo ini adalah website manpro</h1>
+    <div style="display: grid; justify-content: center">
+      <div style="width: 600px; height: 480px; text-align: center">
+        <web-pivot-table />
+      </div>
+    </div>
   </body>
 </html>
