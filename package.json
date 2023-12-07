@@ -5,8 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./src/server",
-    "build-tailwind":"NODE_ENV=production tailwindcss build -i styles/tailwindcss.css -o public/css/styles.css"
+    "dev": "nodemon ./src/server"
   },
   "author": "Kelompok",
   "license": "ISC",
