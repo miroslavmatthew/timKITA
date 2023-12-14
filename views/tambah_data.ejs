@@ -15,7 +15,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
-  <script src=""></script>
+  <script defer src=/"js/tambah_data.js"></script>
   <body>
     <div class="main-container d-flex">
       <%- include("./layout/sidebar") %>
@@ -44,12 +44,24 @@
 
           <div class="dashboard-content px-3 pt-4">
             <div class="m-3">
-              <form>
+              <% if (locals.error) { %>
+                <p class="text-danger"><%= locals.error %></p>
+              <% } else if (locals.success) { %>
+                <p class="text-success"><%= locals.success %></p>
+              <% } %>
+              <form action="/addData" method="post" enctype="multipart/form-data">
                 <label for="formFile" class="form-label">Tambah data</label>
-                <input class="form-control" type="file" id="formFile" />
+                <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                accept=".csv"
+                name="data"
+                />                 
                 <input class="btn btn-primary mt-3" type="submit" value="Submit">
               </form>
             </div>
+            
           </div>
       </div>
     </div>
