@@ -38,3 +38,4 @@ export const uploadData = (req, res, next) => {
     });
 };
 
+let kategorikal = ['ID', 'Education', 'Marital_Status']
