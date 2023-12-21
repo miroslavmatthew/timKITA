@@ -8,4 +8,47 @@ body{
    hr.h-color{
      background: #eee;
 }
-   
+.cont-info{
+  width: 30.3%;
+  height: 15vh;
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  text-align: start;
+  border-radius: 15px;
+  background: #FFF;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.info{
+  margin: 5%;
+}
+
+.btn.dropdown-toggle {
+  background-color: black; 
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+label{
+  width: 100%;
+  margin: 2%;
+  margin-left: 5%;
+  height: 100%;
+}
+.dropdown-center{
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+.cont-tb{
+  height: 65vh;
+  background: #FFF;
+  border-radius: 15px;
+}

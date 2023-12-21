@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="/css/sidebar.css">
+  <script defer src="/js/sidebar.js"></script>
 </head>
 <div class="sidebar" id="side_nav">
   <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
@@ -9,17 +10,12 @@
               class="fal fa-stream"></i></button>
   </div>
 
-  <ul class="list-unstyled px-2">
-      <li class="active"><a href="/" class="text-decoration-none px-3 py-2 d-block">Home</a></li>
-      <li class=""><a href="/scatter" class="text-decoration-none px-3 py-2 d-block">Scatter Plot</a></li>
-      <li class=""><a href="/barchart" class="text-decoration-none px-3 py-2 d-block">Barchart</a></li>
-      <li class=""><a href="/addData" class="text-decoration-none px-3 py-2 d-block">Tambah Data</a></li>
+  <ul class="list-unstyled px-2" id="navLink">
+      <li><a href="/" class="nav-link text-decoration-none px-3 py-2 d-block">Home</a></li>
+      <li><a href="/scatter" class="nav-link text-decoration-none px-3 py-2 d-block">Scatter Plot</a></li>
+      <li><a href="/barchart" class="nav-link text-decoration-none px-3 py-2 d-block">Barchart</a></li>
+      <li><a href="/addData" class="nav-link text-decoration-none px-3 py-2 d-block">Tambah Data</a></li>
   </ul>
   <hr class="h-color mx-2">
-
-  <ul class="list-unstyled px-2">
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">Settings</a></li>
-      <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block">Notifications</a></li>
-  </ul>
 
 </div>
