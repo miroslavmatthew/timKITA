@@ -1,4 +1,15 @@
 import multer from "multer";
+import csv from "fast-csv";
+import fs from "fs";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import {
+    conn
+} from "../connection/dbConnect.js"
+import{
+    insertNewData
+} from "../connection/extractdb.js"
+
 
 export const home = (req,res) => {
     res.render("index");
@@ -26,6 +37,21 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+function uploadCsv(uriFile){
+    let stream = fs.createReadStream(uriFile);
+
+    let koloms = [];
+    let filestream = csv
+    .parse()
+    .on('data', function(data){
+        koloms.push(data);
+    })
+    .on('end', function(data){
+        koloms.shift();
+        insertNewData(conn, koloms)
+    })
+    stream.pipe(filestream)
+}
 export const uploadData = (req, res, next) => {
     upload.single('data')(req, res, (err) => {
         if (err instanceof multer.MulterError) {
@@ -34,7 +60,12 @@ export const uploadData = (req, res, next) => {
             return res.status(500).json({ error: 'An error occurred while uploading files' });
         }
         // Successful upload logic
+
+        var filename = req.file.filename
+        uploadCsv('public/upload/' + filename);
         res.render("tambah_data", { success: 'File uploaded successfully!' });
     });
 };
 
+
+let kategorikal = ['ID', 'Education', 'Marital_Status']
