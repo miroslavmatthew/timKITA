@@ -4,61 +4,76 @@
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="css/index.css">
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script
     type="text/javascript"
     src="https://webpivottable.com/releases/latest/dist/wpt.js"
   ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"
-  ></script>
-  <script src=""></script>
+  <script defer src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <body>
     <div class="main-container d-flex">
       <%- include("./layout/sidebar") %>
       <div class="content">
-          <nav class="navbar navbar-expand-md navbar-light bg-light">
-              <div class="container-fluid">
-                  <div class="d-flex justify-content-between d-md-none d-block">
-                   <button class="btn px-1 py-0 open-btn me-2"><i class="fal fa-stream"></i></button>
-                      <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">CL</span></a>
-                     
-                  </div>
-                  <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                      aria-expanded="false" aria-label="Toggle navigation">
-                      <i class="fal fa-bars"></i>
-                  </button>
-                  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                      <ul class="navbar-nav mb-2 mb-lg-0">
-                          <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </nav>
-
           <div class="dashboard-content px-3 pt-4">
-            <div style="display: grid; justify-content: center">
-              <div style="width: 70vw; height: 80vh; text-align: center">
-                <web-pivot-table />
+            <div class="container cont">
+                <div class="cont-info border border-1 p-2 shadow-sm">
+                  <div class="info">
+                    <h5>Jumlah Konsumen</h5>
+                    <h3>200</h3>
+                  </div>
+                </div>
+                <div class="cont-info border border-1 p-2 shadow-sm">
+                  <div class="info">
+                    <h5>Jumlah Konsumen</h5>
+                    <h3>200</h3>
+                  </div>
+                </div>
+                <div class="cont-info border border-1 p-2 shadow-sm">
+                  <div class="info">
+                    <h5>Jumlah Konsumen</h5>
+                    <h3>200</h3>
+                  </div>
+                </div>
+            </div> 
+            <div class="dropdown-center">
+                <button id="selectDropdown" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Fitur 1
+                </button>
+                <ul id="dropdownMenu" class="dropdown-menu">
+                  <li><a class="dropdown-item">Action</a></li>
+                  <li><a class="dropdown-item">Action two</a></li>
+                  <li><a class="dropdown-item">Action three</a></li>
+                </ul>
+            </div>
+            <div class="dropdown-center"> 
+                <button class="btn btn-secondary dropdown-toggle w-100"
+                        type="button" 
+                        id="multiSelectDropdown"
+                        data-bs-toggle="dropdown" 
+                        aria-expanded="false"> 
+                    Fitur 2 
+                </button> 
+                <ul class="dropdown-menu" 
+                    aria-labelledby="multiSelectDropdown"> 
+                    <li> 
+                      <label> 
+                        <input type="checkbox" 
+                               value="Id"> 
+                            ID 
+                        </label> 
+                    </li> 
+                </ul> 
+            </div> 
+            <div class="cont-tb border border-1 p-2 shadow-sm">
+              <div class="info">
+                
               </div>
             </div>
           </div>
       </div>
     </div>
-    <script>
-      var wpt = document.getElementsByTagName('web-pivot-table')[0];
-      wpt.setWptFromCsvUrl('https://docs.google.com/spreadsheets/d/e/2PACX-1vQIKRz3bhhE40V9GQYab5uTeFKbuJeX1LMiMYHm0VdWBVjnRU9a3Y9cWxeXqnICEaT-VejrWzg9XPQ0/pub?output=csv');
+    </div>
     
-    </script>
   </body>
 </html>
