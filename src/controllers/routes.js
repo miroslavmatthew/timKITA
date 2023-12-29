@@ -4,7 +4,8 @@ import{
     barchart,
     scatter,
     addData,
-    uploadData
+    uploadData,
+    summarize
 } from "./controller.js"
 
 const router = express.Router();
@@ -14,4 +15,5 @@ router.get('/barchart', barchart);
 router.get('/scatter', scatter);
 router.get('/addData', addData);
 router.post('/addData',uploadData)
+router.get('/reqSummaryData', summarize);
 export default router;

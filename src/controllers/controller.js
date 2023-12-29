@@ -7,6 +7,7 @@ import {
     conn
 } from "../connection/dbConnect.js"
 import{
+    getSummary,
     insertNewData
 } from "../connection/extractdb.js"
 
@@ -54,7 +55,7 @@ function uploadCsv(uriFile){
     stream.pipe(filestream)
 }
 
-export const uploadData = (req, res, next) => {
+export const uploadData = (req, res) => {
     upload.single('data')(req, res, (err) => {
         if (err instanceof multer.MulterError) {
             return res.render("tambah_data", { error: 'An error occurred while uploading files' });
@@ -68,6 +69,12 @@ export const uploadData = (req, res, next) => {
         res.render("tambah_data", { success: 'File uploaded successfully!' });
     });
 };
+
+export const summarize = async (req, res) => {
+    let summary = await getSummary(conn);
+    console.log(summary);
+    res.send({summary});
+}
 
 
 let kategorikal = ['ID', 'Education', 'Marital_Status']

@@ -63,3 +63,16 @@ label{
   padding: 8px;
   border-bottom: 1px solid #ddd; /* Optional: Add a border between list items */
 }
+
+.table-container {
+  max-height: 80%; /* Adjust the maximum height as needed */
+  overflow-y: auto;
+}
+
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: black !important;
+  color: white !important;
+  border: 1;
+}

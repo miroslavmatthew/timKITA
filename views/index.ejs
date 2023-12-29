@@ -21,25 +21,25 @@
                 <div class="cont-info border border-1 p-2 shadow-sm">
                   <div class="info">
                     <h5>Jumlah Konsumen</h5>
-                    <h3>200</h3>
+                    <h3 id="summary-konsumen">0</h3>
                   </div>
                 </div>
                 <div class="cont-info border border-1 p-2 shadow-sm">
                   <div class="info">
-                    <h5>Jumlah Konsumen</h5>
-                    <h3>200</h3>
+                    <h5>Rata-rata Umur</h5>
+                    <h3 id="summary-umur" >0</h3>
                   </div>
                 </div>
                 <div class="cont-info border border-1 p-2 shadow-sm">
                   <div class="info">
-                    <h5>Jumlah Konsumen</h5>
-                    <h3>200</h3>
+                    <h5>Rata-Rata Penghasilan</h5>
+                    <h3 id="summary-income" >0</h3>
                   </div>
                 </div>
             </div> 
             <div class="dropdown-center">
                 <button id="selectDropdown" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Fitur 1
+                  GroupBy
                 </button>
                 <ul id="fitur1" class="dropdown-menu">
                 </ul>
@@ -49,16 +49,93 @@
                         type="button" 
                         id="multiSelectDropdown"
                         data-bs-toggle="dropdown" 
-                        aria-expanded="false"> 
-                    Fitur 2 
+                        aria-expanded="false" disabled> 
+                    AggregateBy 
                 </button> 
                 <ul id="fitur2" class="dropdown-menu" 
                     aria-labelledby="multiSelectDropdown"> 
                 </ul> 
-            </div> 
+            </div>
             <div class="cont-tb border border-1 p-2 shadow-sm">
-              <div class="info">
-                
+              <div class="info table-container">
+                <!-- TABLE HERE -->
+                <table class="table table-bordered">
+                  <thead class="sticky-header">
+                    <tr id="table-headers table-bordered" >
+                      <th>GroupBy (Fitur 1)</th>
+                      <th>Aggregate (Fitur 2)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-contents">
+                    <!-- Add table rows dynamically based on data -->
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 1</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
+                    <tr>
+                      <td>Group 1</td>
+                      <td>Aggregate 2</td>
+                    </tr>
               </div>
             </div>
           </div>

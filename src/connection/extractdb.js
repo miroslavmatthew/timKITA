@@ -11,5 +11,23 @@ export const insertNewData = (conn, columns) => {
     });
   };
 
+export const getSummary = (conn) => {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT COUNT(*) AS jumlah_pembeli,
+      AVG(Year_Birth) AS tahun_lahir,
+      AVG(Income) AS penghasilan
+      FROM UserData;`;
+      conn.query(sql, (err, conn) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(conn);
+        }
+      });
+    });
+  };
 
 //   SELECT * FROM User LEFT OUTER JOIN Asdos ON User.id = Asdos.idU WHERE role = 'asdos'
+
+
+
