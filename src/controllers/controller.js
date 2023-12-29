@@ -41,17 +41,19 @@ function uploadCsv(uriFile){
     let stream = fs.createReadStream(uriFile);
 
     let koloms = [];
-    let filestream = csv
-    .parse()
+    let filestream = csv.parse({delimiter: ';'})
     .on('data', function(data){
-        koloms.push(data);
+        if(!data.includes('')){
+            koloms.push(data);
+        }
     })
     .on('end', function(data){
-        koloms.shift();
+        koloms.shift()
         insertNewData(conn, koloms)
     })
     stream.pipe(filestream)
 }
+
 export const uploadData = (req, res, next) => {
     upload.single('data')(req, res, (err) => {
         if (err instanceof multer.MulterError) {
