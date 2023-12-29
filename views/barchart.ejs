@@ -22,36 +22,59 @@
       <%- include("./layout/sidebar") %>
       <div class="content">
         <div class="dashboard-content px-3 pt-4">
-          <div>
-            <canvas id="myChart"></canvas>
+          <div class="dropdown-center">
+            <button id="selectDropdown" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Fitur 1
+            </button>
+            <ul id="fitur1" class="dropdown-menu">
+            </ul>
           </div>
-      
-          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
-          <script>
-            const ctx = document.getElementById("myChart");
-      
-            new Chart(ctx, {
-              type: "bar",
-              data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [
-                  {
-                    label: "# of Votes",
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1,
+          <div class="dropdown-center"> 
+              <button class="btn btn-secondary dropdown-toggle w-100"
+                      type="button" 
+                      id="multiSelectDropdown"
+                      data-bs-toggle="dropdown" 
+                      aria-expanded="false"> 
+                  Fitur 2 
+              </button> 
+              <ul id="fitur2" class="dropdown-menu" 
+                  aria-labelledby="multiSelectDropdown"> 
+              </ul> 
+          </div> 
+          <div class="cont-tb border border-1 p-2 shadow-sm overflow-auto">
+            <div class="info">
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
+          
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+              <script>
+                const ctx = document.getElementById("myChart");
+          
+                new Chart(ctx, {
+                  type: "bar",
+                  data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [
+                      {
+                        label: "# of Votes",
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1,
+                      },
+                    ],
                   },
-                ],
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true,
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                      },
+                    },
                   },
-                },
-              },
-            });
-          </script>
+                });
+              </script>
+            </div>
+          </div>
         </div>
       </div>
     </div>

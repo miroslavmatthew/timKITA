@@ -9,3 +9,41 @@ body{
      background: #eee;
 }
    
+.btn.dropdown-toggle {
+  background-color: black; 
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+label{
+  width: 100%;
+  margin: 2%;
+  margin-left: 5%;
+  height: 100%;
+}
+.dropdown-center{
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+.cont-tb{
+  height: 80vh;
+  background: #FFF;
+  border-radius: 15px;
+}
+
+.dropdown-menu {
+  height: 200px; /* Adjust the height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+}
+
+.dropdown-item {
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Optional: Add a border between list items */
+}
+
+.info{
+  margin: 1%;
+}
