@@ -15,7 +15,10 @@ body{
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
 }
 label{
   width: 100%;

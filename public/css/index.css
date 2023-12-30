@@ -9,8 +9,8 @@ body{
      background: #eee;
 }
 .cont-info{
-  width: 30.3%;
-  height: 15vh;
+  width: 30.5%;
+  height: 100%;
   display: flex;
   gap: 0.4rem;
   flex-direction: column;
@@ -35,7 +35,10 @@ body{
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
 }
 label{
   width: 100%;
@@ -84,6 +87,7 @@ label{
 .row{
   padding-top: 2%;
   padding-bottom: 1%;
+  padding-left: 1%;
 }
 
 input {
@@ -94,4 +98,5 @@ input {
   border: 1px solid rgba(0, 0, 0, 0.15);
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 18vw;
 } 
