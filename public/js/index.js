@@ -22,16 +22,25 @@ const dpBtn = document.getElementById('multiSelectDropdown');
 document.addEventListener('DOMContentLoaded', function () {
     var selectDropdown = document.getElementById('selectDropdown');
     var tableContent = document.getElementById('table-contents')
+    var tableHeader = document.getElementById('table-headers')
+    let groupedBy;
+
+
     fitur1.addEventListener('click', async function (event) {
       if (event.target.classList.contains('dropdown-item')) {
         let choose = event.target.textContent
+        groupedBy = choose;
         selectDropdown.textContent = choose;
         tableContent.innerHTML = ""
+        tableHeader.innerHTML = ""
         const responseGroup = await fetch("reqGroupBy?group=" + choose);
         const textGroup = await responseGroup.text();
         const group = JSON.parse(textGroup).group;
 
         if(group.length > 0){
+            let newHeader = document.createElement('th');
+            newHeader.textContent = choose;
+            tableHeader.appendChild(newHeader)
             
             for(let detail of group){
                 let groupName = detail[choose]
@@ -44,10 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 newRow.appendChild(newCol)
 
                 tableContent.appendChild(newRow);
-            //     <tr>
-            //     <td>Group 1</td>
-            //     <td>Aggregate 1</td>
-            //   </tr>
             }
         }
 
