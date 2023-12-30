@@ -28,20 +28,20 @@ label{
   margin-top: 1%;
 }
 .cont-tb{
-  height: 80vh;
+  height: 85vh;
   background: #FFF;
   border-radius: 15px;
 }
 
 .dropdown-menu {
-  height: 200px; /* Adjust the height as needed */
-  overflow-y: auto; /* Enable vertical scrolling */
-  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  height: 50vh; 
+  overflow-y: auto; 
+  border: 1px solid #ccc; 
 }
 
 .dropdown-item {
   padding: 8px;
-  border-bottom: 1px solid #ddd; /* Optional: Add a border between list items */
+  border-bottom: 1px solid #ddd; 
 }
 
 .info{
