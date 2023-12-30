@@ -6,7 +6,8 @@ import{
     addData,
     uploadData,
     summarize,
-    groupBy
+    groupBy,
+    groupByRes
 } from "./controller.js"
 
 const router = express.Router();
@@ -18,4 +19,5 @@ router.get('/addData', addData);
 router.post('/addData',uploadData)
 router.get('/reqSummaryData', summarize);
 router.get('/reqGroupBy', groupBy);
+router.get('/reqGroupByRes', groupByRes)
 export default router;

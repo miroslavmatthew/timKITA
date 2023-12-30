@@ -50,7 +50,7 @@
                             type="button" 
                             id="multiSelectDropdown"
                             data-bs-toggle="dropdown" 
-                            aria-expanded="false"> 
+                            aria-expanded="false" disabled> 
                         Fitur 2 
                     </button> 
                     <ul id="fitur2" class="dropdown-menu" 
@@ -58,13 +58,15 @@
                     </ul> 
                 </div>
                 <div class="dropdown-center col">
-                  <button id="selectDropdown" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button id="selectAgg" class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
                     Fungsi Agregasi
                   </button>
-                  <ul class="dropdown-menu agregasi">
+                  <ul id="aggregasi" class="dropdown-menu agregasi">
                     <li><a class="dropdown-item">SUM</a></li>
                     <li><a class="dropdown-item">COUNT</a></li>
-                    <li><a class="dropdown-item">AVERAGE</a></li>
+                    <li><a class="dropdown-item">AVG</a></li>
+                    <li><a class="dropdown-item">MIN</a></li>
+                    <li><a class="dropdown-item">MAX</a></li>
                   </ul>
                 </div>
                 <div class="form-inline col w-25">

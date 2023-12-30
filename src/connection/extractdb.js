@@ -40,6 +40,19 @@ export const getGroupBy = (conn, group) => {
     });
   };
 
+export const getGroupByResult = (conn, group, agg, col) => {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT ${agg}(${col}) as result FROM UserData GROUP BY ${group}`;
+      conn.query(sql, [agg, col, group], (err, conn) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(conn);
+        }
+      });
+    });
+  };
+
 //   SELECT * FROM User LEFT OUTER JOIN Asdos ON User.id = Asdos.idU WHERE role = 'asdos'
 
 

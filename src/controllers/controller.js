@@ -8,6 +8,7 @@ import {
 } from "../connection/dbConnect.js"
 import{
     getGroupBy,
+    getGroupByResult,
     getSummary,
     insertNewData
 } from "../connection/extractdb.js"
@@ -84,6 +85,14 @@ export const groupBy = async (req, res) => {
         let group = await getGroupBy(conn, choose);
         res.send({group});
     }
+}
+
+export const groupByRes = async (req, res) => {
+    let group = req.query.group;
+    let agg = req.query.agg;
+    let col = req.query.col;
+    let result = await getGroupByResult(conn, group, agg, col);
+    res.send({result});
 }
 
 
