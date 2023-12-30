@@ -7,10 +7,13 @@ import {
     conn
 } from "../connection/dbConnect.js"
 import{
+    getGroupBy,
     getSummary,
     insertNewData
 } from "../connection/extractdb.js"
 
+const listFitur = ['ID', 'Year_Birth',	'Education',	'Marital_Status',	'Income',	'Kidhome',	'Teenhome',	'Dt_Customer',	'Recency', 'MntWines',	'MntFruits',	'MntMeatProducts',	'MntFishProducts',	'MntSweetProducts',	'MntGoldProds',	'NumDealsPurchases',	'NumWebPurchases',	'NumCatalogPurchases',	'NumStorePurchases',	'NumWebVisitsMonth', 'AcceptedCmp3'	,'AcceptedCmp4',	'AcceptedCmp5'	, 'AcceptedCmp1', 'AcceptedCmp2',	'Complain'	,'Z_CostContact',	'Z_Revenue'	, 'Response'];
+const indexNumerikal = [4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 
 export const home = (req,res) => {
     res.render("index");
@@ -72,8 +75,15 @@ export const uploadData = (req, res) => {
 
 export const summarize = async (req, res) => {
     let summary = await getSummary(conn);
-    console.log(summary);
     res.send({summary});
+}
+
+export const groupBy = async (req, res) => {
+    let choose = req.query.group;
+    if(listFitur.includes(choose)){
+        let group = await getGroupBy(conn, choose);
+        res.send({group});
+    }
 }
 
 

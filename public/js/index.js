@@ -21,11 +21,39 @@ for(let i = 0; i < listFitur.length; i++){
 const dpBtn = document.getElementById('multiSelectDropdown'); 
 document.addEventListener('DOMContentLoaded', function () {
     var selectDropdown = document.getElementById('selectDropdown');
-
-    fitur1.addEventListener('click', function (event) {
+    var tableContent = document.getElementById('table-contents')
+    fitur1.addEventListener('click', async function (event) {
       if (event.target.classList.contains('dropdown-item')) {
-        selectDropdown.textContent = event.target.textContent;
+        let choose = event.target.textContent
+        selectDropdown.textContent = choose;
+        tableContent.innerHTML = ""
+        const responseGroup = await fetch("reqGroupBy?group=" + choose);
+        const textGroup = await responseGroup.text();
+        const group = JSON.parse(textGroup).group;
+
+        if(group.length > 0){
+            
+            for(let detail of group){
+                let groupName = detail[choose]
+                let newRow = document.createElement("tr");
+                newRow.className = 'group-row';
+                
+                let newCol = document.createElement("td");
+                newCol.textContent = groupName;
+                
+                newRow.appendChild(newCol)
+
+                tableContent.appendChild(newRow);
+            //     <tr>
+            //     <td>Group 1</td>
+            //     <td>Aggregate 1</td>
+            //   </tr>
+            }
+        }
+
         dpBtn.disabled = false;
+
+        
       }
     });
 });

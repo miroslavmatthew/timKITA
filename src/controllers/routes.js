@@ -5,7 +5,8 @@ import{
     scatter,
     addData,
     uploadData,
-    summarize
+    summarize,
+    groupBy
 } from "./controller.js"
 
 const router = express.Router();
@@ -16,4 +17,5 @@ router.get('/scatter', scatter);
 router.get('/addData', addData);
 router.post('/addData',uploadData)
 router.get('/reqSummaryData', summarize);
+router.get('/reqGroupBy', groupBy);
 export default router;
