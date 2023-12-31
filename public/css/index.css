@@ -9,7 +9,7 @@ body{
      background: #eee;
 }
 .cont-info{
-  width: 30.5%;
+  width: 24.55vw;
   height: 100%;
   display: flex;
   gap: 0.4rem;
@@ -42,9 +42,8 @@ body{
 }
 label{
   width: 100%;
-  margin: 2%;
-  margin-left: 5%;
-  height: 100%;
+  height: 5vh;
+  cursor: pointer;
 }
 .dropdown-center{
   margin-bottom: 1%;
@@ -54,6 +53,7 @@ label{
   height: 68vh;
   background: #FFF;
   border-radius: 15px;
+  max-width: 81vw;
 }
 
 .dropdown-menu {
@@ -88,9 +88,10 @@ label{
   padding-top: 2%;
   padding-bottom: 1%;
   padding-left: 1%;
+  max-width: 81vw;
 }
 
-input {
+input[type="text"] {
   padding-left: 2em;
   padding-right: 1.5em;
   height: 2em;
@@ -100,3 +101,10 @@ input {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 18vw;
 } 
+
+.form-check{
+  padding-left: 2.5em !important;
+}
+.form-check-input{
+  margin-left: 0 em !important;
+}

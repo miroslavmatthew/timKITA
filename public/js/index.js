@@ -8,13 +8,13 @@ const indexNumerikal = [4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 
 for(let i = 0; i < listFitur.length; i++){
     let content1 = `<li><a class="dropdown-item">${listFitur[i]}</a></li>`;
-    let content2 = `<li> 
-    <label> 
-      <input type="checkbox" value="${listFitur[i]}"> 
-          ${listFitur[i]}
-        </input   
-      </label> 
-  </li> `;
+    let content2 = 
+    `<li> 
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="${listFitur[i]}" value="${listFitur[i]}">
+            <label  class="form-check-label" for="${listFitur[i]}" onclick="event.stopPropagation()">${listFitur[i]}</label> 
+        </div>
+    </li> `;
     fitur1.innerHTML += content1;
     if(indexNumerikal.includes(i)) fitur2.innerHTML += content2;
 }
