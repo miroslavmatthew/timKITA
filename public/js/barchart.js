@@ -17,7 +17,7 @@ for(let i = 0; i < listFitur.length; i++){
 const dpBtn = document.getElementById('multiSelectDropdown'); 
 const aggBtn = document.getElementById('selectAgg')
 let groupCategory= [];
-let groupedBy, aggMethod, aggCols,colome;
+let groupedBy, aggMethod, aggCols,colome,laber;
 
 document.addEventListener('DOMContentLoaded', function () {
     var selectDropdown = document.getElementById('selectDropdown');
@@ -25,10 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
     fitur1.addEventListener('click', async function (event) {
-        var canvas2 = document.getElementById('myChart');
-        if(canvas2!==null){
-            canvas2.remove();
-        }
+        
       if (event.target.classList.contains('dropdown-item')) {
         let choose = event.target.textContent
         groupedBy = choose;
@@ -44,16 +41,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             
         }
+        generateBarchart();
         aggBtn.disabled = false;
     }
 });
-
+console.log(colome==undefined);
 aggregasi.addEventListener('click', async function (event) {
     if (event.target.classList.contains('dropdown-item')) {
         let choose = event.target.textContent
         aggMethod = choose;
         aggBtn.textContent = choose;
         dpBtn.disabled = false;
+        if(colome!=undefined){
+            const responseRes = await fetch(`reqGroupByRes?group=${groupedBy}&agg=${aggMethod}&col=${colome}`);
+            const textRes = await responseRes.text();
+            const result = JSON.parse(textRes).result;
+                dataCategory=[];
+                laber = aggMethod + " of " + colome;
+            for(let i=0; i < result.length; i++){
+                dataCategory.push(result[i].result);
+            }
+        }
+        generateBarchart();
     }
 });
 });
@@ -69,11 +78,20 @@ fitur2.addEventListener('click', async function (event) {
       const textRes = await responseRes.text();
       const result = JSON.parse(textRes).result;
         dataCategory=[];
-        let laber = aggMethod + " of " + colome;
+        laber = aggMethod + " of " + colome;
       for(let i=0; i < result.length; i++){
           dataCategory.push(result[i].result);
       }
-      canvas.innerHTML+='<canvas id="myChart"></canvas>';
+      generateBarchart();
+  }
+});
+
+function generateBarchart(){
+    var canvas2 = document.getElementById('myChart');
+    if(canvas2!==null){
+        canvas2.remove();
+    }
+    canvas.innerHTML+='<canvas id="myChart"></canvas>';
       const ctx = document.getElementById("myChart");
       new Chart(ctx, {
         type: "bar",
@@ -95,7 +113,5 @@ fitur2.addEventListener('click', async function (event) {
           },
         },
       });
-  }
-});
- 
+}
 

@@ -24,15 +24,25 @@ let groupedBy, aggMethod, aggCols,colome;
 document.addEventListener('DOMContentLoaded', function () {
     var selectDropdown = document.getElementById('selectDropdown'); 
     fitur1.addEventListener('click', async function (event) {
-        var canvas2 = document.getElementById('myChart');
-        if(canvas2!==null){
-            canvas2.remove();
-        }
+        
       if (event.target.classList.contains('dropdown-item')) {
         let choose = event.target.textContent
         groupedBy = choose;
         selectDropdown.textContent = choose;
         dpBtn.disabled = false;
+        if(colome!=undefined){
+            const responseRes = await fetch(`reqScatter?cat1=${groupedBy}&cat2=${colome}`);
+            const textRes = await responseRes.text();
+            const result = JSON.parse(textRes).result;
+                dataset=[];
+            for(let i=0; i < result.length; i++){
+                dataset.push({
+                    x: result[i].cat1,
+                    y: result[i].cat2,
+                });
+            }
+        }
+        generateScatter();
     }
 });
 
@@ -48,7 +58,6 @@ fitur2.addEventListener('click', async function (event) {
       const responseRes = await fetch(`reqScatter?cat1=${groupedBy}&cat2=${colome}`);
       const textRes = await responseRes.text();
       const result = JSON.parse(textRes).result;
-      console.log(result);
         dataset=[];
       for(let i=0; i < result.length; i++){
           dataset.push({
@@ -56,7 +65,15 @@ fitur2.addEventListener('click', async function (event) {
             y: result[i].cat2,
           });
       }
-      canvas.innerHTML+='<canvas id="myChart"></canvas>';
+      generateScatter();
+  }
+});
+function generateScatter(){
+    var canvas2 = document.getElementById('myChart');
+    if(canvas2!==null){
+        canvas2.remove();
+    }
+    canvas.innerHTML+='<canvas id="myChart"></canvas>';
       const ctx = document.getElementById("myChart");        
       new Chart(ctx, {
         type: "scatter",
@@ -78,7 +95,6 @@ fitur2.addEventListener('click', async function (event) {
           },
         },
       });
-  }
-});
+}
  
 
