@@ -57,7 +57,7 @@ label{
 }
 
 .dropdown-menu {
-  height: 30vh; 
+  height: 30vh !important; 
   overflow-y: auto; 
   border: 1px solid #ccc; 
   width: 100%;
@@ -68,11 +68,12 @@ label{
 
 .dropdown-item {
   padding: 8px;
-  border-bottom: 1px solid #ddd; /* Optional: Add a border between list items */
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
 }
 
 .table-container {
-  max-height: 45.45vh; /* Adjust the maximum height as needed */
+  max-height: 45.45vh; 
   overflow-y: auto;
 }
 
@@ -104,7 +105,16 @@ input[type="text"] {
 
 .form-check{
   padding-left: 2.5em !important;
+  height: 7vh !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5%;
 }
 .form-check-input{
   margin-left: 0 em !important;
+}
+.form-check:hover {
+  background-color: #f2f2f2; 
+  color: #333;
+  cursor: pointer;
 }
