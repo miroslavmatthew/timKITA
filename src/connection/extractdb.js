@@ -52,7 +52,18 @@ export const getGroupByResult = (conn, group, agg, col) => {
       });
     });
   };
-
+  export const getDataScatter = (conn, cat1, cat2) => {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT ${cat1} as cat1,${cat2} as cat2  FROM UserData `;
+      conn.query(sql, [cat1, cat2], (err, conn) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(conn);
+        }
+      });
+    });
+  };
 //   SELECT * FROM User LEFT OUTER JOIN Asdos ON User.id = Asdos.idU WHERE role = 'asdos'
 
 

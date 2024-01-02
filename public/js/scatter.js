@@ -10,8 +10,10 @@ for(let i = 0; i < listFitur.length; i++){
     let content1 = `<li><a class="dropdown-item">${listFitur[i]}</a></li>`;
     let content2 = 
     `<li><a class="dropdown-item2">${listFitur[i]}</a></li>`;
-    fitur1.innerHTML += content1;
-    if(indexNumerikal.includes(i)) fitur2.innerHTML += content2;
+    if(indexNumerikal.includes(i)){
+        fitur1.innerHTML += content1;
+        fitur2.innerHTML += content2;
+    } 
 }
 
 const dpBtn = document.getElementById('multiSelectDropdown'); 
@@ -20,10 +22,7 @@ let groupCategory= [];
 let groupedBy, aggMethod, aggCols,colome;
 
 document.addEventListener('DOMContentLoaded', function () {
-    var selectDropdown = document.getElementById('selectDropdown');
-    
-    
-    
+    var selectDropdown = document.getElementById('selectDropdown'); 
     fitur1.addEventListener('click', async function (event) {
         var canvas2 = document.getElementById('myChart');
         if(canvas2!==null){
@@ -33,64 +32,48 @@ document.addEventListener('DOMContentLoaded', function () {
         let choose = event.target.textContent
         groupedBy = choose;
         selectDropdown.textContent = choose;
-        const responseGroup = await fetch("reqGroupBy?group=" + choose);
-        const textGroup = await responseGroup.text();
-        const group = JSON.parse(textGroup).group;
-        groupCategory=[];
-        if(group.length > 0){
-            for(let detail of group){
-                let groupName = detail[choose]
-                groupCategory.push(groupName);
-            }
-            
-        }
-        aggBtn.disabled = false;
-    }
-});
-
-aggregasi.addEventListener('click', async function (event) {
-    if (event.target.classList.contains('dropdown-item')) {
-        let choose = event.target.textContent
-        aggMethod = choose;
-        aggBtn.textContent = choose;
         dpBtn.disabled = false;
     }
 });
+
 });
 
-let dataCategory=[];
+let dataset=[];
 
 fitur2.addEventListener('click', async function (event) {
     if (event.target.classList.contains('dropdown-item2')) {
       let choose = event.target.textContent
       colome = choose;
       dpBtn.textContent = choose;
-      const responseRes = await fetch(`reqGroupByRes?group=${groupedBy}&agg=${aggMethod}&col=${colome}`);
+      const responseRes = await fetch(`reqScatter?cat1=${groupedBy}&cat2=${colome}`);
       const textRes = await responseRes.text();
       const result = JSON.parse(textRes).result;
-        dataCategory=[];
-        let laber = aggMethod + " of " + colome;
+      console.log(result);
+        dataset=[];
       for(let i=0; i < result.length; i++){
-          dataCategory.push(result[i].result);
+          dataset.push({
+            x: result[i].cat1,
+            y: result[i].cat2,
+          });
       }
       canvas.innerHTML+='<canvas id="myChart"></canvas>';
-      const ctx = document.getElementById("myChart");
+      const ctx = document.getElementById("myChart");        
       new Chart(ctx, {
-        type: "bar",
+        type: "scatter",
         data: {
-          labels: groupCategory,
           datasets: [
             {
-              label: laber,
-              data: dataCategory,
-              borderWidth: 1,
+              label: "Scatter Dataset",
+              data: dataset,
+              backgroundColor: "rgb(255, 99, 132)",
             },
           ],
         },
         options: {
           scales: {
-            y: {
-              beginAtZero: true,
+            x: {
+              type: "linear",
+              position: "bottom",
             },
           },
         },

@@ -10,7 +10,8 @@ import{
     getGroupBy,
     getGroupByResult,
     getSummary,
-    insertNewData
+    insertNewData,
+    getDataScatter
 } from "../connection/extractdb.js"
 
 const listFitur = ['ID', 'Year_Birth',	'Education',	'Marital_Status',	'Income',	'Kidhome',	'Teenhome',	'Dt_Customer',	'Recency', 'MntWines',	'MntFruits',	'MntMeatProducts',	'MntFishProducts',	'MntSweetProducts',	'MntGoldProds',	'NumDealsPurchases',	'NumWebPurchases',	'NumCatalogPurchases',	'NumStorePurchases',	'NumWebVisitsMonth', 'AcceptedCmp3'	,'AcceptedCmp4',	'AcceptedCmp5'	, 'AcceptedCmp1', 'AcceptedCmp2',	'Complain'	,'Z_CostContact',	'Z_Revenue'	, 'Response'];
@@ -94,6 +95,11 @@ export const groupByRes = async (req, res) => {
     let result = await getGroupByResult(conn, group, agg, col);
     res.send({result});
 }
-
+export const getScatter = async (req, res) => {
+    let cat1 = req.query.cat1;
+    let cat2 = req.query.cat2;
+    let result = await getDataScatter(conn, cat1, cat2);
+    res.send({result});
+}
 
 let kategorikal = ['ID', 'Education', 'Marital_Status']
