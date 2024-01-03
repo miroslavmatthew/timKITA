@@ -50,6 +50,8 @@ body{
   background: #FFF;
   border-radius: 15px;
   max-width: 81vw;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 .dropdown-menu {
@@ -59,7 +61,7 @@ body{
   width: 100%;
 }
 .agregasi{
-  height: 20vh;
+  height: auto !important;
 }
 
 .dropdown-item {
@@ -85,7 +87,7 @@ body{
   padding-top: 2%;
   padding-bottom: 1%;
   padding-left: 1%;
-  max-width: 81vw;
+  max-width: 81.8vw;
 }
 
 input[type="text"] {
@@ -96,7 +98,7 @@ input[type="text"] {
   border: 1px solid rgba(0, 0, 0, 0.15);
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 18vw;
+  width: 18.4vw;
 } 
 
 .form-check{

@@ -31,9 +31,10 @@ label{
   margin-top: 1%;
 }
 .cont-tb{
-  height: 85vh;
+  height: 88vh;
   background: #FFF;
   border-radius: 15px;
+  margin-top: 21;
 }
 
 .dropdown-menu {
@@ -63,4 +64,7 @@ label{
   background-color: #f2f2f2; 
   color: #333;
   cursor: pointer;
+}
+.agregasi{
+  height: auto !important;
 }
