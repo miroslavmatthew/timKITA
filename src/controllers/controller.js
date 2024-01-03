@@ -59,12 +59,9 @@ function uploadCsv(uriFile){
 
 
     let stream = fs.createReadStream(uriFile);
-    let i = 0;
     let koloms = [];
     let filestream = csv.parse({delimiter: selectedDelimiter})
     .on('data', function(data){
-        console.log(i);
-        i++;
         if(!data.includes('')){
             koloms.push(data);
         }
