@@ -31,13 +31,13 @@ label{
   margin-top: 1%;
 }
 .cont-tb{
-  height: 85vh;
+  height: 88vh;
   background: #FFF;
   border-radius: 15px;
 }
 
 .dropdown-menu {
-  height: 50vh; 
+  height: 30vh; 
   overflow-y: auto; 
   border: 1px solid #ccc; 
 }
