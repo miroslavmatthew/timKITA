@@ -118,3 +118,7 @@ input[type="text"] {
   color: #333;
   cursor: pointer;
 }
+
+.hidden{
+  display: none;
+}
