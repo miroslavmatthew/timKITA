@@ -1,7 +1,6 @@
 import multer from "multer";
 import csv from "fast-csv";
 import fs from "fs";
-import readline from "readline"
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import {
@@ -45,44 +44,36 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 function uploadCsv(uriFile){
-
+    const fileContent = fs.readFileSync(uriFile, 'utf8');
     const possibleDelimiters = [',', ';'];
     let selectedDelimiter = ',';
 
-    let stream = fs.createReadStream(uriFile);
-    const rl = readline.createInterface({
-        input: stream,
-        crlfDelay: Infinity,
-    });
+    for (const delimiter of possibleDelimiters) {
+        const delimiterCount = (fileContent.match(new RegExp(delimiter, 'g')) || []).length;
 
-    const lineHandler = (line) => {
-        for (const delimiter of possibleDelimiters) {
-          const delimiterCount = (line.match(new RegExp(delimiter, 'g')) || []).length;
-      
-          if (delimiterCount > 0) {
+        if (delimiterCount > 0) {
             selectedDelimiter = delimiter;
             break;
-          }
         }
-        
-        rl.off('line', lineHandler)
-
-        let koloms = [];
-        let filestream = csv.parse({delimiter: selectedDelimiter})
-        .on('data', function(data){
-            if(!data.includes('')){
-                koloms.push(data);
-            }
-        })
-        .on('end', function(data){
-            koloms.shift()
-            insertNewData(conn, koloms)
-        })
-        stream.pipe(filestream)
     }
-    rl.on('line', lineHandler);
-    
-    
+
+
+    let stream = fs.createReadStream(uriFile);
+    let i = 0;
+    let koloms = [];
+    let filestream = csv.parse({delimiter: selectedDelimiter})
+    .on('data', function(data){
+        console.log(i);
+        i++;
+        if(!data.includes('')){
+            koloms.push(data);
+        }
+    })
+    .on('end', function(data){
+        koloms.shift()
+        insertNewData(conn, koloms)
+    })
+    stream.pipe(filestream)
 }
 
 export const uploadData = (req, res) => {
