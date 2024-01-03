@@ -145,4 +145,20 @@ async function inisiasiSummary(){
     }
 }
 
+function performSearch() {
+    const searchTerm = document.getElementById('myInput').value.toLowerCase();
+    console.log(searchTerm);
+    const tableRows = document.querySelectorAll('#table-contents .group-row');
+
+    tableRows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if (rowText.includes(searchTerm)) {
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+  }
+
+
 inisiasiSummary()
